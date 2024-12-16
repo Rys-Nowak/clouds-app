@@ -13,6 +13,7 @@ export class PicLoaderComponent {
   uploadedImages: string[] = [];
   predictions: Prediction[] = []
   @Output() predictionResult = new EventEmitter<Prediction[]>();
+  loading: boolean = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -30,6 +31,7 @@ export class PicLoaderComponent {
   }
 
   async submitImages(): Promise<void> {
+    this.loading = true;
     try {
       const apiCalls = this.uploadedImages.map(image => this.apiService.predict(image));
       this.predictions = await Promise.all(apiCalls);
@@ -37,6 +39,8 @@ export class PicLoaderComponent {
       console.log('Prediction Results:', this.predictions);
     } catch (error) {
       console.error('Error submitting images:', error);
+    } finally {
+      this.loading = false;
     }
   }
 

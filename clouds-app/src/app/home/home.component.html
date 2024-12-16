@@ -1,10 +1,6 @@
 <div class="container">
     <h1 class="text-center my-4">Cloud classifier</h1>
     <app-pic-loader (predictionResult)="handlePredictionResult($event)"></app-pic-loader>
-    <div class="mt-4">
-        <p *ngIf="predictions.length" class="text-muted">Images submitted</p>
-    </div>
-
     <div *ngIf="predictions.length" class="mt-4">
         <h3>Prediction result</h3>
         <p>Your cloud is {{ labelToName.get(this.bestLabel) }}</p>
