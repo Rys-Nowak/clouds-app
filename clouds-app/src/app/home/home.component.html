@@ -5,11 +5,12 @@
         <p *ngIf="predictions.length" class="text-muted">Images submitted</p>
     </div>
 
-    <div class="mt-4">
+    <div *ngIf="predictions.length" class="mt-4">
         <h3>Prediction result</h3>
-        <h3>Your cloud is {{ labelToName.get(this.bestLabel) }}</h3>
-        <div *ngIf="predictions.length">
-            <canvas baseChart [datasets]="[chartDataset]" [labels]="chartLabels" [type]="'bar'" [options]="chartOptions">
+        <p>Your cloud is {{ labelToName.get(this.bestLabel) }}</p>
+        <div>
+            <canvas baseChart [datasets]="[chartDataset]" [labels]="chartLabels" [type]="'bar'"
+                [options]="chartOptions">
             </canvas>
         </div>
     </div>

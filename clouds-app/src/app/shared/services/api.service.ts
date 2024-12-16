@@ -22,7 +22,7 @@ export class ApiService {
   }
 
   predict(image: string) {
-    return firstValueFrom(this.http.post<Prediction>(this.url + "predict", image).pipe(
+    return firstValueFrom(this.http.post<Prediction>(this.url + "predict", {input: image}).pipe(
       catchError(this.handleError)
     ));
   }

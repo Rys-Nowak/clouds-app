@@ -1,8 +1,17 @@
+:root {
+    --night: #0a090cff;
+    --antiflash-white: #f0edeeff;
+    --midnight-green: #07393cff;
+    --caribbean-current: #2c666eff;
+    --non-photo-blue: #90ddf0ff;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--antiflash-white);
     margin: 0;
     padding: 0;
+    color: var(--night)
 }
 
 .container {
@@ -10,10 +19,26 @@ body {
     margin: 20px auto;
 }
 
-h1,
-h3 {
+h1 {
+    color: var(--night);
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #343a40;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: var(--midnight-green);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--night);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
 }
 
 .card {
@@ -33,7 +58,7 @@ button {
 
 .text-muted {
     font-style: italic;
-    color: #6c757d !important;
+    color: var(--caribbean-current) !important;
 }
 
 .row {

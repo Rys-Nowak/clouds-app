@@ -40,30 +40,23 @@ export class HomeComponent {
 
   constructor() { }
 
-  handlePredictionResult(pred: Prediction[]): void {
-    this.predictions = pred;
+  handlePredictionResult(preds: Prediction[]): void {
+    this.predictions = preds;
     this.calculateAverages();
   }
 
   calculateAverages(): void {
-    const sums: { [key: string]: number } = {};
-    const counts: { [key: string]: number } = {};
+    const sums: Map<string, number> = new Map();
     this.predictions.forEach(pred => {
       for (const [key, value] of Object.entries(pred)) {
-        if (!sums[key]) {
-          sums[key] = 0;
-          counts[key] = 0;
-        }
-        sums[key] += value as number;
-        counts[key]++;
+        sums.set(key, +(sums.get(key) ?? "0") + +value);
       }
     });
 
     this.avgPredValues = {};
-    for (const key in sums) {
-      this.avgPredValues[key] = sums[key] / counts[key];
+    for (const [key, val] of sums.entries()) {
+      this.avgPredValues[key] = val / this.predictions.length;
     }
-
     this.chartLabels = Object.keys(this.avgPredValues);
     this.chartDataset.data = this.avgPredValues;
     this.bestLabel = Object.keys(this.avgPredValues).reduce((a, b) => this.avgPredValues[a] > this.avgPredValues[b] ? a : b);
