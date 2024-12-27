@@ -22,21 +22,20 @@ export class HomeComponent {
   chartDataset = {
     data: {},
   };
-  labelToName = new Map(
-    Object.entries({
-      Ac: "Altocumulus",
-      Cc: "Cirrocumulus",
-      Sc: "Stratocumulus",
-      Cu: "Cumulus",
-      St: "Stratus",
-      As: "Altostratus",
-      Cs: "Cirrostratus",
-      Ns: "Nimbostratus",
-      Cb: "Cumulonimbus",
-      Ci: "Cirrus",
-      Ct: "Contrail",
-    })
-  )
+  labelToName = {
+    Ac: "Altocumulus",
+    Cc: "Cirrocumulus",
+    Sc: "Stratocumulus",
+    Cu: "Cumulus",
+    St: "Stratus",
+    As: "Altostratus",
+    Cs: "Cirrostratus",
+    Ns: "Nimbostratus",
+    Cb: "Cumulonimbus",
+    Ci: "Cirrus",
+    Ct: "Contrails or Clear Sky",
+  };
+  labelToNameMap = new Map(Object.entries(this.labelToName));
 
   constructor() { }
 

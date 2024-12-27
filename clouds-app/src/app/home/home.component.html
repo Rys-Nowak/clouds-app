@@ -3,7 +3,7 @@
     <app-pic-loader (predictionResult)="handlePredictionResult($event)"></app-pic-loader>
     <div *ngIf="predictions.length" class="mt-4">
         <h3>Prediction result</h3>
-        <p>Your cloud is {{ labelToName.get(this.bestLabel) }}</p>
+        <p>Your photo shows <b>{{ labelToNameMap.get(this.bestLabel) }}</b></p>
         <div>
             <canvas baseChart [datasets]="[chartDataset]" [labels]="chartLabels" [type]="'bar'"
                 [options]="chartOptions">
