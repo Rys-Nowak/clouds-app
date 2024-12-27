@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="mb-3">
                 <label for="imageUpload" class="form-label my-4">Upload Images</label>
-                <input type="file" id="imageUpload" class="form-control" (change)="onFileSelected($event)" multiple
+                <input type="file" id="imageUpload" class="form-control" (change)="onFileSelected($event)"
                     accept="image/*" />
             </div>
         </div>
@@ -29,5 +29,17 @@
     </div>
     <div class="mt-4">
         <p *ngIf="predictions.length && !loading" class="text-muted">Images submitted</p>
+    </div>
+
+    <div #cropperModal class="modal">
+        <div class="modal-content">
+            <div style="overflow: hidden;">
+                <img #imageElement [src]="selectedImage" alt="Cropper Image" />
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-success" (click)="cropAndSave()">Crop</button>
+                <button class="btn btn-danger" (click)="closeCropper()">Cancel</button>
+            </div>
+        </div>
     </div>
 </div>
