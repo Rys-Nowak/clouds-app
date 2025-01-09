@@ -21,7 +21,7 @@ export class ApiService {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  predict(image: string) {
+  predict(image: string): Promise<Prediction> {
     return firstValueFrom(this.http.post<Prediction>(this.url + "predict", {input: image}).pipe(
       catchError(this.handleError)
     ));
