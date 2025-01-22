@@ -33,7 +33,7 @@ export class HomeComponent {
     Ns: "Nimbostratus",
     Cb: "Cumulonimbus",
     Ci: "Cirrus",
-    Ct: "Contrails or Clear Sky",
+    Ct: "Contrails",
   };
   labelToNameMap = new Map(Object.entries(this.labelToName));
 
