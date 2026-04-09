@@ -21,6 +21,6 @@ The app will start at `http://localhost:4200/`.
 
 ## Usage
 
-[Cropping](images/crop.png)
+![Cropping](images/crop.png)
 
-[Prediction](images/prediction.png)
+![Prediction](images/prediction.png)
